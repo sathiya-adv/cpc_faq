@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPC FAQ Generator - AI-Powered Legal Assistant</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>🏛️ Civil Procedure Code FAQ Generator</h1>
+            <p>AI-Powered Legal Learning Assistant</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <h2>Get Instant Answers to Your CPC Questions</h2>
+            <div class="search-box">
+                <input type="text" id="mainSearch" placeholder="Ask about jurisdiction, appeals, limitation, plaint...">
+                <button onclick="intelligentSearch()">🔍 Search</button>
+            </div>
+        </section>
+
+        <section class="quick-topics">
+            <h3>Quick Topic Access</h3>
+            <div class="topic-grid">
+                <div class="topic-card" onclick="loadTopic('jurisdiction')">
+                    <h4>Jurisdiction</h4>
+                    <p>Territorial & Subject Matter Jurisdiction</p>
+                </div>
+                <div class="topic-card" onclick="loadTopic('pleadings')">
+                    <h4>Pleadings</h4>
+                    <p>Plaint, Written Statement, Rejoinder</p>
+                </div>
+                <div class="topic-card" onclick="loadTopic('appeals')">
+                    <h4>Appeals & Revision</h4>
+                    <p>Appeal Process, Revision, Review</p>
+                </div>
+                <div class="topic-card" onclick="loadTopic('execution')">
+                    <h4>Execution</h4>
+                    <p>Decree Execution, Attachment, Sale</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq-display" class="faq-section">
+            <!-- Dynamic FAQ content will load here -->
+        </section>
+
+        <section class="ai-generator">
+            <h3>AI FAQ Generator</h3>
+            <p>Enter a specific CPC topic or scenario to generate relevant questions and answers:</p>
+            <textarea id="topicInput" placeholder="Example: 'What happens when a defendant fails to file written statement within 30 days?'"></textarea>
+            <button onclick="generateAIFAQ()">Generate AI FAQ</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 CPC FAQ Generator | Educational Resource</p>
+    </footer>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>
