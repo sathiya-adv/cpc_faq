@@ -45,8 +45,10 @@
             </div>
         </section>
 
+        <!-- SUPABASE FAQ DISPLAY -->
         <section id="faq-display" class="faq-section">
-            <!-- Dynamic FAQ content will load here -->
+            <h3>📚 Stored FAQs (Database)</h3>
+            <div id="faq-container"></div>
         </section>
 
         <section class="ai-generator">
@@ -61,6 +63,43 @@
         <p>© 2026 CPC FAQ Generator | Educational Resource</p>
     </footer>
 
+    <!-- Existing Script -->
     <script src="scripts/app.js"></script>
+
+    <!-- SUPABASE SCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+        const supabaseUrl = "https://iihkigsabrgzfyjmbpen.supabase.co";
+        const supabaseKey = "sb_publishable_UsrPyMoH5mhSG9pd5R5ksg_krkLH6OK";
+
+        const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+        async function loadFAQs() {
+            const { data, error } = await supabase
+                .from("faqs")
+                .select("*");
+
+            if (error) {
+                console.error("Error loading FAQs:", error);
+                return;
+            }
+
+            const container = document.getElementById("faq-container");
+            container.innerHTML = "";
+
+            data.forEach(faq => {
+                container.innerHTML += `
+                    <div class="faq-item">
+                        <h4>${faq.question}</h4>
+                        <p>${faq.answer}</p>
+                    </div>
+                `;
+            });
+        }
+
+        loadFAQs();
+    </script>
+
 </body>
 </html>
