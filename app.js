@@ -7,7 +7,7 @@ console.log("App JS Loaded Successfully");
 const supabaseUrl = "https://iihkigsabrgzfyjmbpen.supabase.co";
 const supabaseKey = "sb_publishable_UsrPyMoH5mhSG9pd5R5ksg_krkLH6OK";
 
-var supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 // ================================
 // LOAD EXISTING FAQS FROM DATABASE
@@ -17,7 +17,7 @@ async function loadFAQs() {
 
     console.log("Loading FAQs...");
 
-    const { data, error } = await supabase
+    const { data, error } = await supabaseClient
         .from("faqs")
         .select("*")
         .order("id", { ascending: false });
@@ -68,7 +68,7 @@ async function saveFAQ(questionText, answerText) {
 
     console.log("Saving to Supabase...");
 
-    const { error } = await supabase
+    const { error } = await supabaseClient
         .from("faqs")
         .insert([
             {
