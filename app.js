@@ -28,6 +28,9 @@ async function loadFAQs() {
     }
 
     const container = document.getElementById("faq-container");
+
+    if (!container) return;
+
     container.innerHTML = "";
 
     data.forEach(faq => {
@@ -41,7 +44,7 @@ async function loadFAQs() {
 }
 
 // ================================
-// SIMPLE AI GENERATOR (CLIENT SIDE)
+// SIMPLE AI GENERATOR
 // ================================
 
 function generateSimpleAI(topic) {
@@ -65,7 +68,7 @@ async function saveFAQ(questionText, answerText) {
 
     console.log("Saving to Supabase...");
 
-    const { data, error } = await supabase
+    const { error } = await supabase
         .from("faqs")
         .insert([
             {
@@ -92,7 +95,11 @@ async function generateAIFAQ() {
 
     console.log("Button clicked");
 
-    const topic = document.getElementById("topicInput").value;
+    const topicInput = document.getElementById("topicInput");
+
+    if (!topicInput) return;
+
+    const topic = topicInput.value.trim();
 
     if (!topic) {
         alert("Please enter a topic.");
@@ -103,11 +110,22 @@ async function generateAIFAQ() {
 
     await saveFAQ(aiResult.question, aiResult.answer);
 
-    document.getElementById("topicInput").value = "";
+    topicInput.value = "";
 }
 
 // ================================
-// AUTO LOAD ON PAGE START
+// SAFE DOM LOAD HANDLER
 // ================================
 
-document.addEventListener("DOMContentLoaded", loadFAQs);
+document.addEventListener("DOMContentLoaded", () => {
+
+    console.log("DOM fully loaded");
+
+    const button = document.getElementById("generateBtn");
+
+    if (button) {
+        button.addEventListener("click", generateAIFAQ);
+    }
+
+    loadFAQs();
+});
