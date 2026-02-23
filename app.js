@@ -7,7 +7,7 @@ console.log("App JS Loaded Successfully");
 const supabaseUrl = "https://iihkigsabrgzfyjmbpen.supabase.co";
 const supabaseKey = "sb_publishable_UsrPyMoH5mhSG9pd5R5ksg_krkLH6OK";
 
-const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+var supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 // ================================
 // LOAD EXISTING FAQS FROM DATABASE
