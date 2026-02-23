@@ -16,14 +16,18 @@
 
     <section>
         <h3>Generate AI FAQ</h3>
+
         <textarea 
             id="topicInput" 
             placeholder="Example: Written statement delay under CPC"
             rows="4"
             cols="50">
         </textarea>
+
         <br><br>
-        <button onclick="generateAIFAQ()">Generate & Save FAQ</button>
+
+        <!-- Remove onclick from here -->
+        <button id="generateBtn">Generate & Save FAQ</button>
     </section>
 
     <hr>
@@ -40,11 +44,11 @@
     <p>© 2026 CPC FAQ Generator</p>
 </footer>
 
-<!-- Load Supabase ONLY ONCE -->
+<!-- Supabase CDN (LOAD ONLY ONCE) -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<!-- Load Your App JS -->
-<script src="app.js"></script>
+<!-- Force refresh JS using version -->
+<script src="app.js?v=3"></script>
 
 </body>
 </html>
