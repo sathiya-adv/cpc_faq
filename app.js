@@ -1,7 +1,9 @@
 // ================================
 // SUPABASE CONFIG
 // ================================
+
 console.log("App JS Loaded Successfully");
+
 const supabaseUrl = "https://iihkigsabrgzfyjmbpen.supabase.co";
 const supabaseKey = "sb_publishable_UsrPyMoH5mhSG9pd5R5ksg_krkLH6OK";
 
@@ -12,6 +14,8 @@ const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 // ================================
 
 async function loadFAQs() {
+
+    console.log("Loading FAQs...");
 
     const { data, error } = await supabase
         .from("faqs")
@@ -59,7 +63,9 @@ Proper compliance ensures procedural fairness and justice.
 
 async function saveFAQ(questionText, answerText) {
 
-    const { error } = await supabase
+    console.log("Saving to Supabase...");
+
+    const { data, error } = await supabase
         .from("faqs")
         .insert([
             {
@@ -72,6 +78,7 @@ async function saveFAQ(questionText, answerText) {
         console.error("Insert Error:", error);
         alert("Error saving FAQ. Check console.");
     } else {
+        console.log("Inserted successfully");
         alert("FAQ saved successfully!");
         loadFAQs();
     }
@@ -82,6 +89,8 @@ async function saveFAQ(questionText, answerText) {
 // ================================
 
 async function generateAIFAQ() {
+
+    console.log("Button clicked");
 
     const topic = document.getElementById("topicInput").value;
 
