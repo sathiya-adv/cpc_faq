@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CPC FAQ Generator - AI Powered</title>
-    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
 
@@ -14,11 +14,19 @@
 
 <main>
 
-    <section class="ai-generator">
+    <section>
         <h3>Generate AI FAQ</h3>
-        <textarea id="topicInput" placeholder="Example: Written statement delay under CPC"></textarea>
+        <textarea 
+            id="topicInput" 
+            placeholder="Example: Written statement delay under CPC"
+            rows="4"
+            cols="50">
+        </textarea>
+        <br><br>
         <button onclick="generateAIFAQ()">Generate & Save FAQ</button>
     </section>
+
+    <hr>
 
     <section>
         <h3>📚 Stored FAQs (Supabase Database)</h3>
@@ -28,14 +36,14 @@
 </main>
 
 <footer>
+    <hr>
     <p>© 2026 CPC FAQ Generator</p>
 </footer>
 
-<!-- SUPABASE CDN -->
+<!-- Load Supabase ONLY ONCE -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<!-- Your JS File -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- Load Your App JS -->
 <script src="app.js"></script>
 
 </body>
