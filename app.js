@@ -1,7 +1,7 @@
 // ================================
 // SUPABASE CONFIG
 // ================================
-
+console.log("App JS Loaded Successfully");
 const supabaseUrl = "https://iihkigsabrgzfyjmbpen.supabase.co";
 const supabaseKey = "sb_publishable_UsrPyMoH5mhSG9pd5R5ksg_krkLH6OK";
 
